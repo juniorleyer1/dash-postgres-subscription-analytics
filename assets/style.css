@@ -1,0 +1,48 @@
+/* ===== Variables y base ===== */
+:root{
+  --container-max: 1100px;
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --radius: 12px;
+  --text: #222;
+  --muted: #666;
+  --bg-soft: #f7f7f9;
+  --shadow: 0 1px 3px rgba(0,0,0,.08);
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html, body { margin:0; padding:0; }
+body { font-family: var(--font); color: var(--text); background: #fff; }
+
+/* ===== Contenedor principal ===== */
+.container { max-width: var(--container-max); margin: 0 auto; padding: var(--space-3); }
+
+/* ===== Header ===== */
+.header { margin-bottom: var(--space-2); }
+.title { margin: 0; letter-spacing: .2px; }
+.subtitle { margin: 4px 0 0 0; color: var(--muted); }
+
+/* ===== Filtros ===== */
+.filters { display:flex; flex-wrap:wrap; gap: var(--space-2); margin: var(--space-3) 0; }
+.filter-item { min-width: 240px; flex: 1; }
+.label { display:block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+
+/* Afinar controles Dash (Dropdown / DatePicker) */
+.Select-control, .DateRangePickerInput { box-shadow: var(--shadow); border-radius: var(--radius); }
+.DateRangePicker, .SingleDatePicker { width: 100%; }
+
+/* ===== KPIs ===== */
+.kpis { display:grid; gap: var(--space-2); grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); margin-bottom: var(--space-2); }
+.kpi-card { background: var(--bg-soft); border-radius: var(--radius); padding: var(--space-3); box-shadow: var(--shadow); }
+.kpi-label { font-size: 12px; color: var(--muted); }
+.kpi-value { font-size: 24px; font-weight: 700; }
+
+/* ===== Charts ===== */
+.charts { margin-top: var(--space-1); }
+.js-plotly-plot, .dash-graph { box-shadow: var(--shadow); border-radius: var(--radius); }
+
+/* ===== Modo oscuro opcional: añade 'dark' al <body> con DevTools si quieres probar ===== */
+body.dark { --text:#eee; --muted:#bbb; --bg-soft:#15171a; background:#0f1115; }
+body.dark .kpi-card, body.dark .js-plotly-plot { background: var(--bg-soft); }
+
