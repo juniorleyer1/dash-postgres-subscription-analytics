@@ -1,8 +1,8 @@
-import pandas as pd
+# import pandas as pd
 from pathlib import Path
 import sys
 
-from sqlalchemy import text
+# from sqlalchemy import text
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
