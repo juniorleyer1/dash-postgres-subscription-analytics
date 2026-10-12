@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine, text
 import pandas as pd
 
+
 DB_CONFIG = {
     "database": "videosubs_db",
     "user": "alumno",
@@ -26,6 +27,8 @@ def get_engine():
 def read_sql_df(sql: str, params: dict | None = None) -> pd.DataFrame:
     with get_engine().connect() as conn:
         return pd.read_sql(text(sql), conn, params=params or {})
+
+
 
 
 # source venv/Scripts/activate
