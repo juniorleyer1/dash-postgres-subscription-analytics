@@ -41,5 +41,5 @@ Sigue estos pasos en tu terminal (Git Bash o similar) para clonar y correr el pr
 
 ### 1. Clonar el repositorio
 ```bash
-git clone [https://github.com/tu-usuario/dash-postgres-subscription-analytics.git](https://github.com/tu-usuario/dash-postgres-subscription-analytics.git)
+git clone [https://github.com/juniorleyer1/dash-postgres-subscription-analytics.git](https://github.com/juniorleyer1/dash-postgres-subscription-analytics.git)
 cd dash-postgres-subscription-analytics
