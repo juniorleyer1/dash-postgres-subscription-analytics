@@ -65,7 +65,7 @@ app.layout = html.Div(className="container", children=[
     
     # Encabezado
     html.Div(className="header", children=[
-        html.H1("KPIs del periodo", className="title"),
+        html.H1("MÉTRICAS DE SUSCRIPCIONES", className="title"),
         html.P("Panel de control y métricas de suscripciones", className="subtitle"),
     ]),
 
