@@ -1,4 +1,5 @@
 # import pandas as pd
+from config import read_sql_df
 from pathlib import Path
 import sys
 
@@ -6,8 +7,6 @@ import sys
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
-
-from config import read_sql_df  # Asegúrate de que importe bien tu archivo config.py
 
 
 query = """

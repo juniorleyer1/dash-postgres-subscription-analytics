@@ -1,3 +1,4 @@
+from config import get_engine, read_sql_df
 from pathlib import Path
 import sys
 from sqlalchemy import text
@@ -7,8 +8,6 @@ from sqlalchemy.exc import SQLAlchemyError
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
 
-from config import get_engine, read_sql_df  # Asegúrate de que importe bien tu archivo config.py
-
 
 def execute_sql(sql: str, params: dict | None = None) -> None:
     """
@@ -16,12 +15,12 @@ def execute_sql(sql: str, params: dict | None = None) -> None:
     utilizando transacciones automáticas y manejo de errores.
     """
     try:
-        # .begin() abre la conexión, hace commit automático si todo sale bien, 
+        # .begin() abre la conexión, hace commit automático si todo sale bien,
         # o hace rollback automático si ocurre algún fallo.
         with get_engine().begin() as conn:
             conn.execute(text(sql), params or {})
         print("¡Operación SQL ejecutada exitosamente!")
-        
+
     except SQLAlchemyError as e:
         print(f"Error de base de datos: {e}")
         raise
@@ -29,9 +28,9 @@ def execute_sql(sql: str, params: dict | None = None) -> None:
         print(f"Ocurrió un error inesperado: {e}")
         raise
 
-# --- Ejemplo de cómo usarla ---
+
 if __name__ == "__main__":
-    # Tu consulta SQL para modificar la tabla
+
     query = """
     ALTER TABLE subscription_cohorts
     ALTER COLUMN customer_id TYPE INTEGER USING customer_id::INTEGER,
@@ -45,13 +44,12 @@ if __name__ == "__main__":
             ELSE FALSE 
         END;
     """
-    
-    # Ejecutas la función pasándole la consulta
+
     execute_sql(query)
-    
+
     # query = """
     # SELECT * FROM subscription_cohorts;
     # """
-    
+
     # df = read_sql_df(sql=query)
     # print(df.dtypes)
